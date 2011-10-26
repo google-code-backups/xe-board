@@ -52,9 +52,12 @@
 
             if(!$output->toBool()) return $output;
 
-            $this->add('page',Context::get('page'));
-            $this->add('module_srl',$output->get('module_srl'));
             $this->setMessage($msg_code);
+			if (Context::get('success_return_url')){
+				$this->setRedirectUrl(Context::get('success_return_url'));
+			}else{
+				$this->setRedirectUrl(getNotEncodedUrl('', 'module', 'admin', 'act', 'dispBoardAdminBoardInfo', 'module_srl', $output->get('module_srl')));
+			}
         }
 
         /**
@@ -91,6 +94,8 @@
 
             $oModuleController = &getController('module');
             $oModuleController->insertModulePartConfig('board', $module_srl, $list_arr);
+
+			$this->setRedirectUrl(Context::get('success_return_url'));
         }
     }
 ?>
