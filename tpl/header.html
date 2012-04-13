@@ -1,29 +1,33 @@
 <load target="js/board_admin.js" />
 
-<h1 class="h1">{$lang->board_management}</h1>
-
-<block cond="$module_info">
-	<block cond="$module_info->mid">
-		<h2 class="h2">
-			{$module_info->mid}<block cond="$module_info->is_default=='Y'">({$lang->is_default})</block>
-			|
-			<a href="{getSiteUrl($module_info->domain,'','mid',$module_info->mid)}">{$lang->view}</a>
-		</h2>
-	</block>
-
-	<div class="cnb">
-		<ul>
-			<li cond="$module=='admin'" class="active"|cond="$act=='dispBoardAdminContent'"><a href="{getUrl('act','dispBoardAdminContent','module_srl','', 'selected_var_idx', '', 'type', '')}">{$lang->cmd_board_list}</a></li>
-			<li cond="$module!='admin'"><a href="{getUrl('act','', 'selected_var_idx', '', 'type', '')}">{$lang->cmd_back}</a></li>
-			<li class="active"|cond="$act=='dispBoardAdminBoardInfo'||$act=='dispBoardAdminInsertBoard'"><a href="{getUrl('act','dispBoardAdminBoardInfo', 'selected_var_idx', '', 'type', '')}"><!--@if($module_srl)-->{$lang->cmd_view_info}<!--@else-->{$lang->cmd_create_board}<!--@end--></a></li>
-			<block cond="$module_srl">
-				<li class="active"|cond="$act=='dispBoardAdminCategoryInfo'"><a href="{getUrl('act','dispBoardAdminCategoryInfo', 'selected_var_idx', '', 'type', '')}">{$lang->cmd_manage_category}</a></li>
-				<li class="active"|cond="$act=='dispBoardAdminExtraVars'"><a href="{getUrl('act','dispBoardAdminExtraVars', 'selected_var_idx', '', 'type', '')}">{$lang->extra_vars}</a></li>
-				<li class="active"|cond="$act=='dispBoardAdminListSetup'"><a href="{getUrl('act','dispBoardAdminListSetup', 'selected_var_idx', '', 'type', '')}">{$lang->cmd_list_setting}</a></li>
-				<li class="active"|cond="$act=='dispBoardAdminGrantInfo'"><a href="{getUrl('act','dispBoardAdminGrantInfo', 'selected_var_idx', '', 'type', '')}">{$lang->cmd_manage_grant}</a></li>
-				<li class="active"|cond="$act=='dispBoardAdminBoardAdditionSetup'"><a href="{getUrl('act','dispBoardAdminBoardAdditionSetup', 'selected_var_idx', '', 'type', '')}">{$lang->cmd_addition_setup}</a></li>
-				<li class="active"|cond="$act=='dispBoardAdminSkinInfo'"><a href="{getUrl('act','dispBoardAdminSkinInfo', 'selected_var_idx', '', 'type', '')}">{$lang->cmd_manage_skin}</a></li>
-			</block>
-		</ul>
-	</div>
-</block>
+<h1 class="cleared">
+    <!--@if($module_info->mid)-->
+		{$module_info->mid}
+		<!--@if($module_info->is_default=='Y')-->
+			({$lang->is_default})
+		<!--@end-->
+	<!--@else-->
+		{$lang->board_management}
+	<!--@end-->
+	<span class="xe-ui-nav">
+			<!--@if($module=='admin' && $module_info->mid)-->
+				<a class="xe-ui-button-gray <!--@if($act=='dispBoardAdminContent')-->disabled<!--@end-->" href="{getUrl('act','dispBoardAdminContent','module_srl','', 'selected_var_idx', '', 'type', '')}">{$lang->cmd_back}</a>
+				<a class="xe-ui-button-gray <!--@if($act=='dispBoardAdminInsertBoard' || $act=='dispBoardAdminBoardInfo')-->disabled<!--@end-->" href="{getUrl('act','dispBoardAdminBoardInfo', 'selected_var_idx', '', 'type', '')}">{$lang->cmd_view_info}</a>
+				<a class="xe-ui-button-gray <!--@if($act=='dispBoardAdminBoardAdditionSetup')-->disabled<!--@end-->" href="{getUrl('act','dispBoardAdminBoardAdditionSetup', 'selected_var_idx', '', 'type', '')}">{$lang->cmd_addition_setup}</a>
+				
+				<a class="xe-ui-button-gray <!--@if($act=='dispBoardAdminCategoryInfo')-->disabled<!--@end-->" href="{getUrl('act','dispBoardAdminCategoryInfo', 'selected_var_idx', '', 'type', '')}">{$lang->cmd_categories}</a>
+				<a class="xe-ui-button-gray <!--@if($act=='dispBoardAdminExtraVars')-->disabled<!--@end-->" href="{getUrl('act','dispBoardAdminExtraVars', 'selected_var_idx', '', 'type', '')}">{$lang->extra_vars}</a>
+				<a class="xe-ui-button-gray <!--@if($act=='dispBoardAdminListSetup')-->disabled<!--@end-->" href="{getUrl('act','dispBoardAdminListSetup', 'selected_var_idx', '', 'type', '')}">{$lang->cmd_list_setting}</a>
+				<a class="xe-ui-button-gray <!--@if($act=='dispBoardAdminGrantInfo')-->disabled<!--@end-->" href="{getUrl('act','dispBoardAdminGrantInfo', 'selected_var_idx', '', 'type', '')}">{$lang->cmd_manage_grant}</a>
+				<a class="xe-ui-button-gray <!--@if($act=='dispBoardAdminSkinInfo')-->disabled<!--@end-->" href="{getUrl('act','dispBoardAdminSkinInfo', 'selected_var_idx', '', 'type', '')}">{$lang->cmd_manage_skin}</a>
+			<!--@end-->
+	</span>
+</h1>
+<div class="xe-ui-title-separator">
+    <hr />
+</div>
+<div id="content" class="cleared">
+		<div cond="$XE_VALIDATOR_MESSAGE" class="xe-ui-message {$XE_VALIDATOR_MESSAGE_TYPE} gradient cleared">
+	        <a href="#" style="float: right;" onclick="jQuery(this).parent().remove();return false;" class="xe-ui-button-gray gradient">Dismiss</a>
+	        <p>{$XE_VALIDATOR_MESSAGE}</p>
+	    </div>

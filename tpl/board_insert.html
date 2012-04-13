@@ -1,184 +1,204 @@
 <include target="header.html" />
+	<div class="xe-ui-panel">
+		<div class="xe-ui-panel-content cleared">
+			<h2>{$lang->cmd_view_info}</h2>
+			<form ruleset="insertBoard" class="form" action="./" method="post" enctype="multipart/form-data" class="form">
+				<input type="hidden" name="module" value="board" />
+				<input type="hidden" name="act" value="procBoardAdminInsertBoard" />
+				<input type="hidden" name="page" value="{$page}" />
+				<input type="hidden" name="module_srl" value="{$module_info->module_srl}" />
+				<input cond="$mid || $module_srl" type="hidden" name="success_return_url" value="{getRequestUriByServerEnviroment()}" />
+				<input cond="$logged_info->is_admin != 'Y'" type="hidden" name="board_name" value="{$module_info->mid}" />
 
-<div cond="$XE_VALIDATOR_MESSAGE" class="message {$XE_VALIDATOR_MESSAGE_TYPE}">
-	<p>{$XE_VALIDATOR_MESSAGE}</p>
-</div>
+				<table class="xe-ui-form-table" cellpadding="0" cellspacing="0">
+					<tbody>					
+						<!--@if($logged_info->is_admin == 'Y')-->
+						<tr>
+							<td class="v-top nowrap"><p>{$lang->mid}</p></td>
+							<td>
+								<p><input class="xe-ui-panel-text" maxlength="40" title="{$lang->about_mid}" type="text" name="board_name" id="board_name" value="{$module_info->mid}" /></p>
+							</td> 
+						</tr>
+						<!--@end-->
+						<tr>
+							<td class="v-top nowrap">{$lang->module_category}</td>
+							<td>
+								<select class="xe-ui-panel-select" name="module_category_srl" id="module_category_srl">
+									<option value="0">{$lang->notuse}</option>
+									<option loop="$module_category => $key, $val" value="{$key}" selected="selected"|cond="$module_info->module_category_srl == $key">{$val->title}</option>
+								</select>
+								<label>{$lang->about_module_category}</label>
+							</td>
+						</tr>
+						<tr>
+							<td class="v-top nowrap"><p>{$lang->browser_title}</p></td>
+							<td class="multiLangEdit">
+								<p>
+									{@$use_multilang = true}
+									<input type="hidden" name="browser_title" value="<!--@if(strpos($module_info->browser_title, '$user_lang->') === false)-->{$module_info->browser_title}<!--@else-->{htmlspecialchars($module_info->browser_title)}<!--@end-->" class="vLang" />
+									<input class="vLang xe-ui-panel-text" title="{$lang->about_browser_title}" type="text" id="browser_title" value="{$module_info->browser_title}" />
+									<a href="#langEdit" class="xe-ui-button-gray editUserLang tgAnchor">{$lang->cmd_set_multilingual}</a>
+								</p>
+							</td>
+						</tr>
+						<tr>
+							<td class="v-top nowrap">{$lang->layout}</td>
+							<td>
+								<select class="xe-ui-panel-select" name="layout_srl" id="layout_srl">
+									<option value="0">{$lang->notuse}</option>
+									<option loop="$layout_list => $key, $val" value="{$val->layout_srl}" selected="selected"|cond="$module_info->layout_srl== $val->layout_srl">{$val->title} ({$val->layout})</option>
+								</select>
+								<p class="desc">{$lang->about_layout}</p>
+							</td>
+						</tr>
+						<tr>
+							<td class="v-top nowrap"><p>{$lang->skin}</p></td>
+							<td>
+								<select class="xe-ui-panel-select" name="skin" id="skin">
+									<option loop="$skin_list=> $key, $val" value="{$key}" selected="selected"|cond="$module_info->skin== $key || (!$module_info->skin && $key=='xe_board')">{$val->title}</option>
+								</select>
+								<label>{$lang->about_skin}</label>
+							</td>
+						</tr>
+						<tr>
+							<td class="nowrap">{$lang->skin_fix}</td>
+							<td><input type="checkbox" name="is_skin_fix" id="is_skin_fix" value="Y" checked="checked"|cond="$module_info->is_skin_fix == 'Y'" /> <label for="is_skin_fix">{$lang->about_skin_fix}</label></td>
+						</tr>
+						<tr>
+							<td class="v-top nowrap"><p>{$lang->mobile_view}</p></td>
+							<td><input type="checkbox" name="use_mobile" id="use_mobile" value="Y" checked="checked"|cond="$module_info->use_mobile == 'Y'" /> <label for="use_mobile">{$lang->about_mobile_view}</label></td>
+						</tr>
+						<tr>
+							<td class="v-top nowrap">{$lang->mobile_layout}</td>
+							<td>
+								<select class="xe-ui-panel-select" name="mlayout_srl" id="layout_srl">
+									<option value="0">{$lang->notuse}</option>
+									<option loop="$mlayout_list => $key, $val" value="{$val->layout_srl}" selected="selected"|cond="$module_info->mlayout_srl== $val->layout_srl">{$val->title} ({$val->layout})</option>
+								</select>
+								<p class="desc">{$lang->about_layout}</p>
+							</td>
+						</tr>
+						<tr>
+							<td class="v-top nowrap"><p>{$lang->mobile_skin}</p></td>
+							<td>
+								<select class="xe-ui-panel-select" name="mskin" id="mskin">
+									<option loop="$mskin_list=> $key, $val" value="{$key}" selected="selected"|cond="$module_info->mskin== $key || (!$module_info->skin && $key=='xe_board')">{$val->title}</option>
+								</select>
+								<label>{$lang->about_skin}</label>
+							</td>
+						</tr>
+						<tr>
+							<td class="nowrap">{$lang->use_category}</td>
+							<td><input type="checkbox" name="use_category" id="use_category" value="Y" checked="checked"|cond="$module_info->use_category == 'Y'" /> <label for="use_category">{$lang->about_use_category}</label></td>
+						</tr>
+						<tr>
+							<td class="v-top nowrap"><p>{$lang->order_target}</p></td>
+							<td>
+								<select class="xe-ui-panel-select" name="order_target" id="order_target">
+									<option loop="$order_target=> $key, $val" value="{$key}" selected="selected"|cond="$module_info->order_target== $key">{$val}</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td class="v-top nowrap"><p>{$lang->order_type}</p></td>
+							<td>
+								<select class="xe-ui-panel-select" name="order_type" id="order_type">
+									<option value="asc" selected="selected"|cond="$module_info->order_type != 'desc'">{$lang->order_asc}</option>
+									<option value="desc" selected="selected"|cond="$module_info->order_type == 'desc'">{$lang->order_desc}</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td class="nowrap">{$lang->list_count}</td>
+							<td>
+								<input class="xe-ui-panel-text" title="{$lang->about_list_count}" type="text" name="list_count" id="list_count" value="{$module_info->list_count?$module_info->list_count:20}" />
+							</td>
+						</tr>
+						<tr>
+							<td class="v-top nowrap"><p>{$lang->search_list_count}</p></td>
+							<td>
+								<input class="xe-ui-panel-text" title="{$lang->about_search_list_count}" type="text" name="search_list_count" id="search_list_count" value="{$module_info->search_list_count?$module_info->search_list_count:20}" />
+							</td>
+						</tr>
+						<tr>
+							<td class="nowrap">{$lang->page_count}</td>
+							<td>
+								<input class="xe-ui-panel-text" title="{$lang->about_page_count}" type="text" name="page_count" id="page_count" value="{$module_info->page_count?$module_info->page_count:20}" />
+								<p class="desc"></p>
+							</td>
+						</tr>
+						<tr>
+							<td class="v-top nowrap"><p>{$lang->except_notice}</p></td>
+							<td><p><input type="checkbox" name="except_notice" id="except_notice" value="Y" checked="checked"|cond="$module_info->except_notice != 'N'" /> <label for="except_notice">{$lang->about_except_notice}</label></p></td>
+						</tr>
+						<tr>
+							<td class="v-top nowrap">{$lang->use_anonymous}</td>
+							<td>
+								<input type="checkbox" name="use_anonymous" id="use_anonymous" value="Y" checked="checked"|cond="$module_info->use_anonymous == 'Y'" /> <label for="use_anonymous">{$lang->about_use_anonymous}</label>
+								<p class="desc">{$lang->about_use_anonymous_attention}</p>								
+							</td>
+						</tr>
+						<tr>
+							<td class="v-top nowrap">{$lang->consultation}</td>
+							<td><input type="checkbox" name="consultation" id="consultation" value="Y" checked="checked"|cond="$module_info->consultation == 'Y'" /> <label for="consultation">{$lang->about_consultation}</label></td>
+						</tr>
+						<tr>
+							<td class="v-top nowrap">{$lang->status}</td>
+							<td>
+								<input type="hidden" name="use_status[]" value="PUBLIC" />
+								<input type="checkbox" name="" value="" checked="checked" disabled="disabled" /> {$document_status_list['PUBLIC']}
+								<block loop="$document_status_list => $key, $value">
+									<block cond="$key != 'PRIVATE' && $key != 'TEMP' && $key != 'PUBLIC'">
+										<input type="checkbox" name="use_status[]" id="{$key}" value="{$key}" checked="checked"|cond="@in_array($key, $module_info->use_status) || ($key == 'PUBLIC' && !$module_srl)" /> <label for="{$key}">{$value}</label>
+									</block>
+								</block>
+								<p class="desc">{$lang->about_use_status}</p>
+							</td>
+						</tr>
+						<tr>
+							<td class="v-top nowrap">{$lang->admin_mail}</td>
+							<td>
+								<input class="xe-ui-panel-text" type="text" name="admin_mail" id="admin_mail" value="{$module_info->admin_mail}" />
+								<p class="desc">{$lang->about_admin_mail}</p>
+							</td>
+						</tr>
+						<tr>
+							<td class="v-top nowrap"><p>{$lang->description}</p></td>
+							<td>
+								<textarea title="{$lang->about_description}" class="xe-ui-panel-textarea" name="description" id="description" rows="8" cols="42">{htmlspecialchars($module_info->description)}</textarea>
+							</td>
+						</tr>
+						<tr>
+							<td class="v-top nowrap"><p>{$lang->header_text}</p></td>
+							<td class="multiLangEdit">
+								<p>
+								{@$use_multilang_textarea = true}
+								<input type="hidden" name="header_text" value="<!--@if(strpos($module_info->header_text, '$user_lang->') === false)-->{$module_info->header_text}<!--@else-->{htmlspecialchars($module_info->header_text)}<!--@end-->" class="vLang" />
+								<textarea title="{$lang->about_header_text}" id="header_text" class="xe-ui-panel-textarea vLang" rows="8" cols="42">{$module_info->header_text}</textarea>
+								<span class="desc"><a href="#langEditTextarea" class="editUserLang tgAnchor xe-ui-button-gray">{$lang->cmd_set_multilingual}</a></span>
+								</p>
+							</td>
+						</tr>
+						<tr>
+							<td class="v-top nowrap">{$lang->footer_text}</td>
+							<td class="multiLangEdit">
+								<input type="hidden" name="footer_text" value="<!--@if(strpos($module_info->footer_text, '$user_lang->') === false)-->{$module_info->footer_text}<!--@else-->{htmlspecialchars($module_info->footer_text)}<!--@end-->" class="vLang" />
+								<textarea title="{$lang->about_footer_text}" id="footer_text" class="vLang xe-ui-panel-textarea" rows="8" cols="42">{$module_info->footer_text}</textarea>
+								<a href="#langEditTextarea" class="editUserLang tgAnchor xe-ui-button-gray">{$lang->cmd_set_multilingual}</a></span>
+							</td>
+						</tr>
+					</tbody>
+				</table>
 
-<form ruleset="insertBoard" class="form" action="./" method="post" enctype="multipart/form-data" class="form">
-	<input type="hidden" name="module" value="board" />
-	<input type="hidden" name="act" value="procBoardAdminInsertBoard" />
-	<input type="hidden" name="page" value="{$page}" />
-	<input type="hidden" name="module_srl" value="{$module_info->module_srl}" />
-	<input cond="$mid || $module_srl" type="hidden" name="success_return_url" value="{getRequestUriByServerEnviroment()}" />
-	<input cond="$logged_info->is_admin != 'Y'" type="hidden" name="board_name" value="{$module_info->mid}" />
-
-	<ul>
-		<li cond="$logged_info->is_admin == 'Y'">
-			<p class="q"><label for="board_name">{$lang->mid}</label></p>
-			<p class="a"><input type="text" name="board_name" id="board_name" value="{$module_info->mid}" />
-			<p class="desc">{$lang->about_mid}</p>
-		</li>
-		<li>
-			<p class="q"><label for="module_category_srl">{$lang->module_category}</label></p>
-			<p class="a">
-				<select name="module_category_srl" id="module_category_srl">
-					<option value="0">{$lang->notuse}</option>
-					<option loop="$module_category => $key, $val" value="{$key}" selected="selected"|cond="$module_info->module_category_srl == $key">{$val->title}</option>
-				</select>
-			</p>
-			<p class="desc">{$lang->about_module_category}</p>
-		</li>
-		<li>
-			<p class="q"><label for="browser_title">{$lang->browser_title}</label></p>
-			<p class="a multiLangEdit">
-				{@$use_multilang = true}
-				<input type="hidden" name="browser_title" value="<!--@if(strpos($module_info->browser_title, '$user_lang->') === false)-->{$module_info->browser_title}<!--@else-->{htmlspecialchars($module_info->browser_title)}<!--@end-->" class="vLang" />
-				<input type="text" id="browser_title" value="{$module_info->browser_title}" class="vLang" />
-				<span class="desc"><a href="#langEdit" class="editUserLang tgAnchor">{$lang->cmd_set_multilingual}</a></span>
-			</p>
-			<p class="desc">{$lang->about_browser_title}</p>
-		</li>
-		<li>
-			<p class="q"><label for="layout_srl">{$lang->layout}</label></p>
-			<p class="a">
-				<select name="layout_srl" id="layout_srl">
-					<option value="0">{$lang->notuse}</option>
-					<option loop="$layout_list => $key, $val" value="{$val->layout_srl}" selected="selected"|cond="$module_info->layout_srl== $val->layout_srl">{$val->title} ({$val->layout})</option>
-				</select>
-			</p>
-			<p class="desc">{$lang->about_layout}</p>
-		</li>
-		<li>
-			<p class="q"><label for="skin">{$lang->skin}</label></p>
-			<p class="a">
-				<select name="skin" id="skin">
-					<option loop="$skin_list=> $key, $val" value="{$key}" selected="selected"|cond="$module_info->skin== $key || (!$module_info->skin && $key=='xe_board')">{$val->title}</option>
-				</select>
-			</p>
-			<p class="desc">{$lang->about_skin}</p>
-		</li>
-		<li>
-			<p class="q">{$lang->skin_fix}</p>
-			<p class="a"><input type="checkbox" name="is_skin_fix" id="is_skin_fix" value="Y" checked="checked"|cond="$module_info->is_skin_fix == 'Y'" /> <label for="is_skin_fix">{$lang->about_skin_fix}</label></p>
-		</li>
-		<li>
-			<p class="q">{$lang->mobile_view}</p>
-			<p class="a"><input type="checkbox" name="use_mobile" id="use_mobile" value="Y" checked="checked"|cond="$module_info->use_mobile == 'Y'" /> <label for="use_mobile">{$lang->about_mobile_view}</label></p>
-		</li>
-		<li>
-			<p class="q"><label for="mlayout_srl">{$lang->mobile_layout}</label></p>
-			<p class="a">
-				<select name="mlayout_srl" id="layout_srl">
-					<option value="0">{$lang->notuse}</option>
-					<option loop="$mlayout_list => $key, $val" value="{$val->layout_srl}" selected="selected"|cond="$module_info->mlayout_srl== $val->layout_srl">{$val->title} ({$val->layout})</option>
-				</select>
-			</p>
-			<p class="desc">{$lang->about_layout}</p>
-		</li>
-		<li>
-			<p class="q"><label for="mskin">{$lang->mobile_skin}</label></p>
-			<p class="a">
-				<select name="mskin" id="mskin">
-					<option loop="$mskin_list=> $key, $val" value="{$key}" selected="selected"|cond="$module_info->mskin== $key || (!$module_info->skin && $key=='xe_board')">{$val->title}</option>
-				</select>
-			</p>
-			<p class="desc">{$lang->about_skin}</p>
-		</li>
-		<li>
-			<p class="q">{$lang->use_category}</p>
-			<p class="a"><input type="checkbox" name="use_category" id="use_category" value="Y" checked="checked"|cond="$module_info->use_category == 'Y'" /> <label for="use_category">{$lang->about_use_category}</label></p>
-		</li>
-		<li>
-			<p class="q"><label for="order_target">{$lang->order_target}</label></p>
-			<p class="a">
-				<select name="order_target" id="order_target">
-					<option loop="$order_target=> $key, $val" value="{$key}" selected="selected"|cond="$module_info->order_target== $key">{$val}</option>
-				</select>
-			</p>
-		</li>
-		<li>
-			<p class="q"><label for="order_type">{$lang->order_type}</label></p>
-			<p class="a">
-				<select name="order_type" id="order_type">
-					<option value="asc" selected="selected"|cond="$module_info->order_type != 'desc'">{$lang->order_asc}</option>
-					<option value="desc" selected="selected"|cond="$module_info->order_type == 'desc'">{$lang->order_desc}</option>
-				</select>
-			</p>
-		</li>
-		<li>
-			<p class="q"><label for="list_count">{$lang->list_count}</label></p>
-			<p class="a"><input type="text" name="list_count" id="list_count" value="{$module_info->list_count?$module_info->list_count:20}" /></p>
-			<p class="desc">{$lang->about_list_count}</p>
-		</li>
-		<li>
-			<p class="q"><label for="search_list_count">{$lang->search_list_count}</label></p>
-			<p class="a"><input type="text" name="search_list_count" id="search_list_count" value="{$module_info->search_list_count?$module_info->search_list_count:20}" /></p>
-			<p class="desc">{$lang->about_search_list_count}</p>
-		</li>
-		<li>
-			<p class="q"><label for="page_count">{$lang->page_count}</label></p>
-			<p class="a"><input type="text" name="page_count" id="page_count" value="{$module_info->page_count?$module_info->page_count:20}" /></p>
-			<p class="desc">{$lang->about_page_count}</p>
-		</li>
-		<li>
-			<p class="q">{$lang->except_notice}</p>
-			<p class="a"><input type="checkbox" name="except_notice" id="except_notice" value="Y" checked="checked"|cond="$module_info->except_notice != 'N'" /> <label for="except_notice">{$lang->about_except_notice}</label></p>
-		</li>
-		<li>
-			<p class="q">{$lang->use_anonymous}</p>
-			<p class="a"><input type="checkbox" name="use_anonymous" id="use_anonymous" value="Y" checked="checked"|cond="$module_info->use_anonymous == 'Y'" /> <label for="use_anonymous">{$lang->about_use_anonymous}</label></p>
-		</li>
-		<li>
-			<p class="q">{$lang->consultation}</p>
-			<p class="a"><input type="checkbox" name="consultation" id="consultation" value="Y" checked="checked"|cond="$module_info->consultation == 'Y'" /> <label for="consultation">{$lang->about_consultation}</label></p>
-		</li>
-		<li>
-			<p class="q">{$lang->status}</p>
-			<p class="a">
-				<input type="hidden" name="use_status[]" value="PUBLIC" />
-				<input type="checkbox" name="" value="" checked="checked" disabled="disabled" /> {$document_status_list['PUBLIC']}
-				<block loop="$document_status_list => $key, $value">
-					<block cond="$key != 'PRIVATE' && $key != 'TEMP' && $key != 'PUBLIC'">
-						<input type="checkbox" name="use_status[]" id="{$key}" value="{$key}" checked="checked"|cond="@in_array($key, $module_info->use_status) || ($key == 'PUBLIC' && !$module_srl)" /> <label for="{$key}">{$value}</label>
-					</block>
-				</block>
-			</p>
-			<p class="desc">{$lang->about_use_status}</p>
-		</li>
-		<li>
-			<p class="q"><label for="admin_mail">{$lang->admin_mail}</label></p>
-			<p class="a"><input type="text" name="admin_mail" id="admin_mail" value="{$module_info->admin_mail}" /></p>
-			<p class="desc">{$lang->about_admin_mail}</p>
-		</li>
-		<li>
-			<p class="q"><label for="description">{$lang->description}</label></p>
-			<p class="a"><textarea name="description" id="description" rows="8" cols="42">{htmlspecialchars($module_info->description)}</textarea></p>
-			<p class="desc">{$lang->about_description}</p>
-		</li>
-		<li>
-			<p class="q"><label for="header_text">{$lang->header_text}</label></p>
-			<p class="a multiLangEdit">
-				{@$use_multilang_textarea = true}
-				<input type="hidden" name="header_text" value="<!--@if(strpos($module_info->header_text, '$user_lang->') === false)-->{$module_info->header_text}<!--@else-->{htmlspecialchars($module_info->header_text)}<!--@end-->" class="vLang" />
-				<textarea id="header_text" class="vLang" rows="8" cols="42">{$module_info->header_text}</textarea>
-				<span class="desc"><a href="#langEditTextarea" class="editUserLang tgAnchor">{$lang->cmd_set_multilingual}</a></span>
-			</p>
-			<p class="desc">{$lang->about_header_text}</p>
-		</li>
-		<li>
-			<p class="q"><label for="footer_text">{$lang->footer_text}</label></p>
-			<p class="a multiLangEdit">
-				<input type="hidden" name="footer_text" value="<!--@if(strpos($module_info->footer_text, '$user_lang->') === false)-->{$module_info->footer_text}<!--@else-->{htmlspecialchars($module_info->footer_text)}<!--@end-->" class="vLang" />
-				<textarea id="footer_text" class="vLang" rows="8" cols="42">{$module_info->footer_text}</textarea>
-				<span class="desc"><a href="#langEditTextarea" class="editUserLang tgAnchor">{$lang->cmd_set_multilingual}</a></span>
-			</p>
-			<p class="desc">{$lang->about_footer_text}</p>
-		</li>
-	</ul>
-
-	<div class="btnArea">
-		<span class="btn"><input type="submit" value="{$lang->cmd_registration}" /></span>
+				<include target="../../module/tpl/include.multilang.html" />
+				<include target="../../module/tpl/include.multilang.textarea.html" />
+			</form>
+		</div>
+		<div class="xe-ui-panel-controller">
+            <hr />
+            <p class="center">
+            	<a href="#" onclick="jQuery('.form').submit();" class="xe-ui-button-gray">{$lang->cmd_registration}</a>
+            </p>
+        </div>
 	</div>
-	<include target="../../module/tpl/include.multilang.html" />
-	<include target="../../module/tpl/include.multilang.textarea.html" />
-</form>
+</div>

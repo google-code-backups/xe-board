@@ -168,7 +168,7 @@
 	</item>
 	<item name="cmd_view_info">
 		<value xml:lang="ko"><![CDATA[게시판 정보]]></value>
-		<value xml:lang="en"><![CDATA[Board Info]]></value>
+		<value xml:lang="en"><![CDATA[Setup]]></value>
 		<value xml:lang="jp"><![CDATA[掲示板情報]]></value>
 		<value xml:lang="zh-CN"><![CDATA[版面信息]]></value>
 		<value xml:lang="zh-TW"><![CDATA[討論板資料]]></value>
@@ -236,7 +236,7 @@
 	</item>
 	<item name="about_use_anonymous">
 		<value xml:lang="ko"><![CDATA[글쓴이의 정보를 없애고 익명으로 게시판 사용을 할 수 있게 합니다. 스킨설정에서 글쓴이 정보등을 보이지 않도록 하시면 더욱 유용합니다. 추가설정의 문서 히스토리 사용이 꺼져있지 않으면 문서 수정시 작성자가 표시될 수 있습니다.]]></value>
-		<value xml:lang="en"><![CDATA[Make this board into an anonymous board by hiding the author's information. <strong>Please turn off history at additional setup. If not, editing document might show the author's info.</strong>]]></value>
+		<value xml:lang="en"><![CDATA[Make this board into an anonymous board by hiding the author's information.]]></value>
 		<value xml:lang="jp"><![CDATA[匿名掲示板として活用出来ます。スキンの設定で「登録者の情報を表示しない」の設定をお勧めします。]]></value>
 		<value xml:lang="zh-CN"><![CDATA[글쓴이의 정보를 없애고 익명으로 게시판 사용을 할 수 있게 합니다. 스킨설정에서 글쓰인 정보등을 보이지 않도록 하시면 더욱 유용합니다]]></value>
 		<value xml:lang="zh-TW"><![CDATA[討論板可使用匿名功能。可在面板設定中設置隱藏作者的資料。 ]]></value>
@@ -244,6 +244,18 @@
 		<value xml:lang="ru"><![CDATA[글쓴이의 정보를 없애고 익명으로 게시판 사용을 할 수 있게 합니다. 스킨설정에서 글쓰인 정보등을 보이지 않도록 하시면 더욱 유용합니다]]></value>
 		<value xml:lang="es"><![CDATA[글쓴이의 정보를 없애고 익명으로 게시판 사용을 할 수 있게 합니다. 스킨설정에서 글쓰인 정보등을 보이지 않도록 하시면 더욱 유용합니다]]></value>
 		<value xml:lang="tr"><![CDATA[Bu panoyu, yazar bilgisini saklayarak anonim pano haline dönüştür. <strong>Lütfen ek ayarlardan geçmiş'i kapatınız. Eğer kapatmazsanız, belgeyi değiştirmek yazar bilgisinin görüntülenmesine neden olacaktır.</strong>]]></value>
+		<value xml:lang="vi"><![CDATA[Tạo Board ẩn danh sẽ ẩn những thông tin của người sử dụng.]]></value>
+	</item>
+	<item name="about_use_anonymous_attention">
+		<value xml:lang="ko"><![CDATA[않도록 하시면 더욱 유용합니다. 추가설정의 문서 히스토리 사용이 꺼져있지 않으면 문서 수정시 작성자가 표시될 수 있습니다.]]></value>
+		<value xml:lang="en"><![CDATA[Please turn off history at additional setup. If not, editing document might show the author's info.]]></value>
+		<value xml:lang="jp"><![CDATA[匿名掲示板として活用出来ます。スキンの設定で「登録者の情報を表示しない」の設定をお勧めします。]]></value>
+		<value xml:lang="zh-CN"><![CDATA[않도록 하시면 더욱 유용합니다]]></value>
+		<value xml:lang="zh-TW"><![CDATA[討論板可使用匿名功能。可在面板設定中設置隱藏作者的資料。 ]]></value>
+		<value xml:lang="fr"><![CDATA[않도록 하시면 더욱 유용합니다]]></value>
+		<value xml:lang="ru"><![CDATA[않도록 하시면 더욱 유용합니다]]></value>
+		<value xml:lang="es"><![CDATA[않도록 하시면 더욱 유용합니다]]></value>
+		<value xml:lang="tr"><![CDATA[Lütfen ek ayarlardan geçmiş'i kapatınız. Eğer kapatmazsanız, belgeyi değiştirmek yazar bilgisinin görüntülenmesine neden olacaktır.]]></value>
 		<value xml:lang="vi"><![CDATA[Tạo Board ẩn danh sẽ ẩn những thông tin của người sử dụng.]]></value>
 	</item>
 	<item name="about_board">
