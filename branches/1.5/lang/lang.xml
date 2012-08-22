@@ -27,7 +27,7 @@
 		<value xml:lang="en"><![CDATA[Use Anonymous]]></value>
 		<value xml:lang="jp"><![CDATA[匿名機能を使う]]></value>
 		<value xml:lang="zh-TW"><![CDATA[匿名功能]]></value>
-		<value xml:lang="tr"><![CDATA[Anonim Kullan]]></value>
+		<value xml:lang="tr"><![CDATA[İsimsiz Kullan]]></value>
 		<value xml:lang="vi"><![CDATA[Sử dụng ẩn danh]]></value>
 	</item>
 	<item name="cmd_manage_menu">
@@ -39,7 +39,7 @@
 		<value xml:lang="fr"><![CDATA[Administration de Menu]]></value>
 		<value xml:lang="ru"><![CDATA[Управление меню]]></value>
 		<value xml:lang="es"><![CDATA[Manejo del menú]]></value>
-		<value xml:lang="tr"><![CDATA[Menüleri Yönet]]></value>
+		<value xml:lang="tr"><![CDATA[Menuleri Yönet]]></value>
 		<value xml:lang="vi"><![CDATA[Quản lý Menu]]></value>
 	</item>
 	<item name="list_target_item">
@@ -81,7 +81,7 @@
 		<value xml:lang="en"><![CDATA[Last post]]></value>
 		<value xml:lang="jp"><![CDATA[最新投稿]]></value>
 		<value xml:lang="zh-TW"><![CDATA[最新發表]]></value>
-		<value xml:lang="tr"><![CDATA[Son Gönderi]]></value>
+		<value xml:lang="tr"><![CDATA[Son Gönderi]]></value>																														 ri]]></value>
 		<value xml:lang="vi"><![CDATA[Bài gửi trước]]></value>
 	</item>
 	<item name="board_management">
@@ -128,7 +128,7 @@
 		<value xml:lang="zh-CN"><![CDATA[此为密帖。]]></value>
 		<value xml:lang="zh-TW"><![CDATA[這是秘密文。]]></value>
 		<value xml:lang="es"><![CDATA[Es bimilgeul.]]></value>
-		<value xml:lang="tr"><![CDATA[Bu gizli bir makaledir.]]></value>
+		<value xml:lang="tr"><![CDATA[Bu gizli bir yazıdır.]]></value>
 		<value xml:lang="vi"><![CDATA[Bài viết này đã được đặt bí mật.]]></value>
 	</item>
 	<item name="admin_mail">
@@ -139,7 +139,7 @@
 		<value xml:lang="zh-TW"><![CDATA[管理員電子郵件]]></value>
 		<value xml:lang="fr"><![CDATA[Mél de l'administrateur]]></value>
 		<value xml:lang="es"><![CDATA[Administrador de Correo]]></value>
-		<value xml:lang="tr"><![CDATA[Yönetici E-postası]]></value>
+		<value xml:lang="tr"><![CDATA[Yonetici E-postası]]></value>
 		<value xml:lang="vi"><![CDATA[Email của Administrator]]></value>
 	</item>
 	<item name="cmd_board_list">
@@ -192,7 +192,7 @@
 		<value xml:lang="en"><![CDATA[Create a new board]]></value>
 		<value xml:lang="jp"><![CDATA[掲示板の登録]]></value>
 		<value xml:lang="zh-TW"><![CDATA[建立討論板]]></value>
-		<value xml:lang="tr"><![CDATA[Yeni pano oluştur]]></value>
+		<value xml:lang="tr"><![CDATA[Yeni Pano Oluştur]]></value>
 	</item>
 	<item name="cmd_manage_selected_board">
 		<value xml:lang="ko"><![CDATA[선택한 게시판 관리]]></value>
@@ -208,7 +208,7 @@
 		<value xml:lang="fr"><![CDATA[Vous pouvez manuellement modifier le code de Mise en Page du blogue. Insérez ou administrez le code de Gadget n'importe où vous voulez.]]></value>
 		<value xml:lang="ru"><![CDATA[Вы можете вручную изменять лейаут код блога. Вставляйте или управляйте кодом виджетов везде, где хотите]]></value>
 		<value xml:lang="es"><![CDATA[Puede modificar manualmente el código del diseño de tableros. Insertar o modificar el código de widget.]]></value>
-		<value xml:lang="tr"><![CDATA[Pano yerleşim düzeni kodunu kendiniz değiştirebilirsiniz. Widget kodunu, istediğiniz yere yerleştirebilir veya yönetebilirsiniz.]]></value>
+		<value xml:lang="tr"><![CDATA[Pano yerleşim düzeni kodunu kendiniz değiştirebilirsiniz. Widget kodunu, istediğiniz yere yerleştirebilir veya yonetebilirsiniz.]]></value>
 		<value xml:lang="vi"><![CDATA[Bạn có thể tự sửa đổi code trong giao diện của Board. Chèn hay tùy chỉnh vị trí, code của các Widget nếu bạn muốn.]]></value>
 	</item>
 	<item name="about_board_category">
@@ -231,7 +231,7 @@
 		<value xml:lang="zh-TW"><![CDATA[設置公告列表項目，不再重複顯示到普通列表當中。]]></value>
 		<value xml:lang="fr"><![CDATA[Le titre de Notice dont l'article se représentera toujours en tête de la liste ne sera exposé sur la liste générale.]]></value>
 		<value xml:lang="es"><![CDATA[Aviso de los artículos no se mostrará en la lista normal.]]></value>
-		<value xml:lang="tr"><![CDATA[Bildiri makaleleri normal listede görüntülenmeyecektir.]]></value>
+		<value xml:lang="tr"><![CDATA[Bildiri yazıları normal listede görüntülenmeyecektir.]]></value>
 		<value xml:lang="vi"><![CDATA[Bài viết dạng thông báo sẽ không được hiển thị trên danh sách bình thường.]]></value>
 	</item>
 	<item name="about_use_anonymous">
@@ -243,7 +243,7 @@
 		<value xml:lang="fr"><![CDATA[글쓴이의 정보를 없애고 익명으로 게시판 사용을 할 수 있게 합니다. 스킨설정에서 글쓰인 정보등을 보이지 않도록 하시면 더욱 유용합니다]]></value>
 		<value xml:lang="ru"><![CDATA[글쓴이의 정보를 없애고 익명으로 게시판 사용을 할 수 있게 합니다. 스킨설정에서 글쓰인 정보등을 보이지 않도록 하시면 더욱 유용합니다]]></value>
 		<value xml:lang="es"><![CDATA[글쓴이의 정보를 없애고 익명으로 게시판 사용을 할 수 있게 합니다. 스킨설정에서 글쓰인 정보등을 보이지 않도록 하시면 더욱 유용합니다]]></value>
-		<value xml:lang="tr"><![CDATA[Bu panoyu, yazar bilgisini saklayarak anonim pano haline dönüştür. <strong>Lütfen ek ayarlardan geçmiş'i kapatınız. Eğer kapatmazsanız, belgeyi değiştirmek yazar bilgisinin görüntülenmesine neden olacaktır.</strong>]]></value>
+		<value xml:lang="tr"><![CDATA[Bu panoyu, yazar bilgisini saklayarak isimsiz pano haline dönüştür. <strong>Lutfen ek ayarlardan gecmiş'i kapatınız. Eğer kapatmazsanız, belgeyi değiştirmek yazar bilgisinin görüntülenmesine neden olacaktır.</strong>]]></value>
 		<value xml:lang="vi"><![CDATA[Tạo Board ẩn danh sẽ ẩn những thông tin của người sử dụng.]]></value>
 	</item>
 	<item name="about_use_anonymous_attention">
@@ -255,7 +255,7 @@
 		<value xml:lang="fr"><![CDATA[않도록 하시면 더욱 유용합니다]]></value>
 		<value xml:lang="ru"><![CDATA[않도록 하시면 더욱 유용합니다]]></value>
 		<value xml:lang="es"><![CDATA[않도록 하시면 더욱 유용합니다]]></value>
-		<value xml:lang="tr"><![CDATA[Lütfen ek ayarlardan geçmiş'i kapatınız. Eğer kapatmazsanız, belgeyi değiştirmek yazar bilgisinin görüntülenmesine neden olacaktır.]]></value>
+		<value xml:lang="tr"><![CDATA[Lütfen ek ayarlardan gecmiş'i kapatınız. Eğer kapatmazsanız, yazar bilgisinin goruntulenmesine neden olacaktır.]]></value>
 		<value xml:lang="vi"><![CDATA[Tạo Board ẩn danh sẽ ẩn những thông tin của người sử dụng.]]></value>
 	</item>
 	<item name="about_board">
@@ -267,7 +267,7 @@
 		<value xml:lang="fr"><![CDATA[Ce module se sert à créer et à administrer des Panneaux d'Affichage.]]></value>
 		<value xml:lang="ru"><![CDATA[Этот модуль служит для создания и управления форумами.]]></value>
 		<value xml:lang="es"><![CDATA[Este módulo es para crear y manejar los tableros.]]></value>
-		<value xml:lang="tr"><![CDATA[Bu modül, pano oluşturmak ve panoları yönetmek içindir.]]></value>
+		<value xml:lang="tr"><![CDATA[Bu modül, pano oluşturmak ve panoları yönetmek icindir.]]></value>
 		<value xml:lang="vi"><![CDATA[Module này dùng để tạo và tùy chỉnh Board.]]></value>
 	</item>
 	<item name="about_consultation">
@@ -285,7 +285,7 @@ Non-membres ne pourraient pas écrire des articles quand la Consultation est app
 		<value xml:lang="ru"><![CDATA[상담 기능은 관리권한이 없는 회원은 자신이 쓴 글만 보이도록 하는 기능입니다
 단 상담기능 사용시 비회원 글쓰기는 자동으로 금지됩니다.]]></value>
 		<value xml:lang="es"><![CDATA[No administrador de los miembros que consideran que su propia artocles. \ NNon miembros no serían capaces de escribir artículos al utilizar la consulta.]]></value>
-		<value xml:lang="tr"><![CDATA[Yönetici olmayan üyeler, kendi makalelerini görebileceklerdir.
+		<value xml:lang="tr"><![CDATA[Yonetici olmayan üyeler, kendi yazılarını görebileceklerdir.
 Üye olmayan kullanıcılar başvuruyu kullanıp, makale yazamayacaklardır.]]></value>
 		<value xml:lang="vi"><![CDATA[Người không phải là Admin, thành viên họ cũng có thể xem được bài viết.
 Không phải là thành viên thì không thể gửi bài hay bình luận.]]></value>
@@ -297,7 +297,7 @@ Không phải là thành viên thì không thể gửi bài hay bình luận.]]>
 		<value xml:lang="zh-CN"><![CDATA[设置主题及评论当中使用密帖与否。]]></value>
 		<value xml:lang="zh-TW"><![CDATA[可用於討論板或回覆時選擇是否使用。]]></value>
 		<value xml:lang="es"><![CDATA[Boletín y los comentarios de bimilgeul utilizar.]]></value>
-		<value xml:lang="tr"><![CDATA[Kullanıcılar gizli makaleler veya gizli yorumlar yazabileceklerdir.]]></value>
+		<value xml:lang="tr"><![CDATA[Kullanıcılar gizli yazılar veya gizli yorumlar yazabileceklerdir.]]></value>
 		<value xml:lang="vi"><![CDATA[Người dùng được phép đặt bí mật cho bài viết hay bình luận của mình.]]></value>
 	</item>
 	<item name="about_admin_mail">
@@ -309,7 +309,7 @@ Không phải là thành viên thì không thể gửi bài hay bình luận.]]>
 		<value xml:lang="fr"><![CDATA[Un message éléctronique sera envoyé à l'adresse inscrite quand un article ou commentaire se soumet.  On peut inscrire multiple adresses délimité par les virgules.]]></value>
 		<value xml:lang="ru"><![CDATA[글이나 댓글이 등록될때 등록된 메일주소로 메일이 발송됩니다  ,(콤마)로 연결시 다수의 메일주소로 발송할 수 있습니다.]]></value>
 		<value xml:lang="es"><![CDATA[Comentarios por e-mail registrado geulyina cuando la inscripción se enviará a  , (coma) como una conexión, puede enviar a varios e-mail.]]></value>
-		<value xml:lang="tr"><![CDATA[Makale ya da yorum gönderildiğinde e-posta gönderilecektir. Çoklu mailler noktalarla(,) ayrılıp gönderilecektir.]]></value>
+		<value xml:lang="tr"><![CDATA[Makale ya da yorum yapıldığında e-posta gönderilecektir. Çoklu mailler noktalarla(,) ayrılıp gonderilecektir.]]></value>
 		<value xml:lang="vi"><![CDATA[Một Email sẽ được gửi khi có bài viết hay bình luận mới. Có thể gửi cho nhiều Email cách nhau bằng dấu (,).]]></value>
 	</item>
 	<item name="about_list_config">
@@ -321,7 +321,7 @@ Không phải là thành viên thì không thể gửi bài hay bình luận.]]>
 		<value xml:lang="fr"><![CDATA[게시판의 목록형식 사용시 원하는 항목들로 배치를 할 수 있습니다. 단 스킨에서 지원하지 않는 경우 지원되지 않을 수 있습니다 대상항목/ 표시항목의 항목을 더블클릭하면 추가/ 제거가 됩니다.]]></value>
 		<value xml:lang="ru"><![CDATA[게시판의 목록형식 사용시 원하는 항목들로 배치를 할 수 있습니다. 단 스킨에서 지원하지 않는 경우 지원되지 않을 수 있습니다 대상항목/ 표시항목의 항목을 더블클릭하면 추가/ 제거가 됩니다.]]></value>
 		<value xml:lang="es"><![CDATA[Boletín de la lista, utilice el tipo de elemento que desee, puede colocar.   Si no está sólo apoyada por la piel no puede ser apoyada   meta de entrada y mostrar el tema cuando hace doble clic en la entrada en Agregar o quitar es.]]></value>
-		<value xml:lang="tr"><![CDATA[Eğer liste-tarzı dış görünüm kullanıyorsanız, gösterilecek parçaları düzenleyebilirsiniz. Fakat; bu özellik resmi olmayan dış görünümler için mevcut olmayabilir. Parçalara çift tıklamak ekleme/çıkarma özelliği sağlayacaktır.]]></value>
+		<value xml:lang="tr"><![CDATA[Eğer liste-tarzı dış görünüm kullanıyorsanız, gosterilecek parçaları düzenleyebilirsiniz. Fakat; bu özellik resmi olmayan dış gorunumler icin mevcut olmayabilir. Parcalara cift tıklamak ekleme/cıkarma ozelli?i sa?layacaktır.]]></value>
 		<value xml:lang="vi"><![CDATA[Nếu sử dụng danh sách giao diện, bạn có thể sắp xếp các mục hiển thị. Tuy nhiên, tính năng này không sử dụng được cho giao diện chính thức. Nếu bạn bấm 2 lần vào các mục sẽ kích hoạt chức năng thêm hay xóa chúng.]]></value>
 	</item>
 	<item name="about_use_status">
@@ -335,7 +335,7 @@ Không phải là thành viên thì không thể gửi bài hay bình luận.]]>
 		<value xml:lang="jp"><![CDATA[書き込みするためのポイントが足りません。]]></value>
 		<value xml:lang="zh-CN"><![CDATA[很遗憾！您的积分不够。]]></value>
 		<value xml:lang="zh-TW"><![CDATA[你的點數不夠在此討論板發表主題。]]></value>
-		<value xml:lang="tr"><![CDATA[Bu panoya makele yazmak için yeterli puanınız bulunmamaktadır.]]></value>
+		<value xml:lang="tr"><![CDATA[Bu panoya yazı yazmak icin yeterli puanınız bulunmamaktadır.]]></value>
 		<value xml:lang="vi"><![CDATA[Điểm của bạn chưa đủ để gửi bài tại đây!]]></value>
 	</item>
 	<item name="write_comment">
